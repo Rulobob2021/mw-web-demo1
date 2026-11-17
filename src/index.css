@@ -8,12 +8,12 @@
   
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #242e35;
+    color: #434349;
     background-color: #ffffff;
   }
 }
 
 ::selection {
-  background-color: #80c431;
+  background-color: #84AF25;
   color: #ffffff;
 }

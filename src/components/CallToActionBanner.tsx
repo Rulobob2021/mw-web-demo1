@@ -29,28 +29,25 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
   return (
     <section className="py-16 lg:py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Banner with Mentalidad Web Brand Gradient & Wave Curve */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-[#001F2B] via-[#0A2837] to-[#001720] p-8 sm:p-12 lg:p-14 text-white">
-          
-          {/* Subtle decorative glow with #80C431 and #39DCE5 */}
+        {/* Banner with #374556 & #434349 Gradient + #84AF25 Accent */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-[#374556] via-[#3D4754] to-[#434349] p-8 sm:p-12 lg:p-14 text-white">
+          {/* Subtle decorative glow with #84AF25 */}
           <div
             className="absolute -top-24 -left-24 w-80 h-80 rounded-full blur-3xl opacity-20 pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #80C431, #001F2B)' }}
+            style={{ background: 'radial-gradient(circle, #84AF25, #374556)' }}
           />
           <div
-            className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full blur-3xl opacity-20 pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #39DCE5, #001F2B)' }}
+            className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full blur-3xl opacity-15 pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #84AF25, #434349)' }}
           />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
             {/* Left Column: Headline & Subtitle */}
             <div className="lg:col-span-5 text-left space-y-3">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 ¿Hablamos 30 minutos de tu proyecto?
               </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                 Agenda una sesión estratégica sin costo con nuestros consultores senior y descubre cómo podemos potenciar tus resultados con datos.
               </p>
             </div>
@@ -58,8 +55,8 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
             {/* Middle Column: Interactive Email Capture Form */}
             <div className="lg:col-span-5">
               {submitted ? (
-                <div className="bg-[#80C431]/20 border border-[#80C431]/40 rounded-2xl p-4 flex items-center gap-3 text-white">
-                  <CheckCircle2 className="w-5 h-5 text-[#80C431] shrink-0" />
+                <div className="bg-[#84AF25]/20 border border-[#84AF25]/45 rounded-2xl p-4 flex items-center gap-3 text-white">
+                  <CheckCircle2 className="w-5 h-5 text-[#84AF25] shrink-0" />
                   <span className="text-sm font-medium">
                     ¡Excelente! Abriendo calendario para coordinar tu llamada...
                   </span>
@@ -68,7 +65,7 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
                 <form onSubmit={handleSubmit} className="space-y-2">
                   <div className="bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-full shadow-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                     <div className="flex items-center gap-3 px-4 py-2 sm:py-0 flex-1">
-                      <Mail className="w-5 h-5 text-slate-400 shrink-0" />
+                      <Mail className="w-5 h-5 text-[#434349]/50 shrink-0" />
                       <input
                         type="email"
                         value={email}
@@ -77,24 +74,24 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
                           if (error) setError('');
                         }}
                         placeholder="Tu email corporativo"
-                        className="w-full text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none bg-transparent"
+                        className="w-full text-[#434349] placeholder:text-[#434349]/45 text-sm focus:outline-none bg-transparent"
                         required
                       />
                     </div>
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold text-[#001F2B] bg-[#80C431] hover:bg-[#68A326] hover:text-white active:scale-[0.98] rounded-xl sm:rounded-full transition-all duration-200 shadow-md shadow-[#80C431]/30 whitespace-nowrap cursor-pointer shrink-0"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold text-[#232930] bg-[#84AF25] hover:bg-[#374556] hover:text-white active:scale-[0.98] rounded-xl sm:rounded-full transition-all duration-200 shadow-md shadow-[#84AF25]/30 whitespace-nowrap cursor-pointer shrink-0"
                     >
                       <span>Agendar llamada</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                   {error && (
-                    <p className="text-xs text-rose-300 pl-4 text-left font-medium">
+                    <p className="text-xs text-rose-200 pl-4 text-left font-medium">
                       {error}
                     </p>
                   )}
-                  <p className="text-[11px] text-slate-400 pl-4 text-left">
+                  <p className="text-[11px] text-white/65 pl-4 text-left">
                     Sin compromisos. Respetamos tu privacidad y seguridad de datos.
                   </p>
                 </form>
@@ -102,16 +99,16 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
             </div>
 
             {/* Right Column: Logo & Social Links */}
-            <div className="lg:col-span-2 flex flex-col lg:items-end items-start gap-4 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10">
+            <div className="lg:col-span-2 flex flex-col lg:items-end items-start gap-4 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/15">
               <MentalidadWebLogo variant="white" />
-              
+
               {/* Social Channels */}
-              <div className="flex items-center gap-3 text-slate-300">
+              <div className="flex items-center gap-3 text-white/75">
                 <a
                   href="https://www.linkedin.com/company/mentalidad-web/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#80C431] transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#84AF25] transition-colors"
                   aria-label="LinkedIn Mentalidad Web"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -120,7 +117,7 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
                   href="https://www.youtube.com/@MentalidadWeb"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#80C431] transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#84AF25] transition-colors"
                   aria-label="YouTube Mentalidad Web"
                 >
                   <Youtube className="w-4 h-4" />
@@ -129,7 +126,7 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
                   href="https://x.com/mentalidadweb"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#80C431] transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#84AF25] transition-colors"
                   aria-label="X Twitter Mentalidad Web"
                 >
                   <Twitter className="w-4 h-4" />
@@ -138,17 +135,15 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
                   href="https://www.instagram.com/mentalidadweb/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#80C431] transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 hover:text-[#84AF25] transition-colors"
                   aria-label="Instagram Mentalidad Web"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

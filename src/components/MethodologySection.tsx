@@ -22,7 +22,7 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
 
   const getStepIcon = (iconName: string, isSelected: boolean) => {
     const iconClass = `w-6 h-6 transition-colors ${
-      isSelected ? 'text-[#001F2B]' : 'text-slate-700'
+      isSelected ? 'text-[#232930]' : 'text-[#374556]'
     }`;
     switch (iconName) {
       case 'search':
@@ -38,42 +38,45 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
     }
   };
 
-  const currentStepData = METHODOLOGY_STEPS.find((s) => s.stepNumber === activeStep) || METHODOLOGY_STEPS[0];
+  const currentStepData =
+    METHODOLOGY_STEPS.find((s) => s.stepNumber === activeStep) || METHODOLOGY_STEPS[0];
 
   return (
-    <section id="metodologia" className="py-20 lg:py-28 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 border-t border-slate-100">
+    <section
+      id="metodologia"
+      className="py-20 lg:py-28 bg-gradient-to-b from-[#374556]/[0.04] via-white to-[#374556]/[0.03] border-t border-[#374556]/10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 text-left">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#80C431] block">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#84AF25] block">
               METODOLOGÍA
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001F2B] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#434349] tracking-tight">
               Cómo trabajamos
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-[#434349]/75 text-base sm:text-lg leading-relaxed">
               Un proceso simple, transparente y colaborativo, estructurado para maximizar el valor de cada punto de contacto y lograr grandes resultados.
             </p>
           </div>
 
           <button
             onClick={onOpenConsultation}
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#80C431] hover:text-[#68A326] hover:underline cursor-pointer"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#374556] hover:text-[#84AF25] hover:underline cursor-pointer transition-colors"
           >
             <span>Conoce nuestro proceso</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#84AF25]" />
           </button>
         </div>
 
         {/* 4-Step Interactive Timeline */}
         <div className="relative mb-12">
           {/* Connecting line (Desktop) */}
-          <div className="hidden md:block absolute top-4 left-[12%] right-[12%] h-[2.5px] bg-slate-200 -z-0">
+          <div className="hidden md:block absolute top-4 left-[12%] right-[12%] h-[2.5px] bg-[#374556]/15 -z-0">
             {/* Active progress fill */}
             <div
-              className="h-full bg-[#80C431] transition-all duration-300"
+              className="h-full bg-[#84AF25] transition-all duration-300"
               style={{
                 width: `${((activeStep - 1) / (METHODOLOGY_STEPS.length - 1)) * 100}%`,
               }}
@@ -91,16 +94,16 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
                   onClick={() => setActiveStep(step.stepNumber)}
                   className={`flex flex-col items-center text-center cursor-pointer group p-4 rounded-2xl transition-all duration-200 ${
                     isSelected
-                      ? 'bg-white shadow-md border border-[#80C431]/40'
-                      : 'hover:bg-white/60'
+                      ? 'bg-white shadow-md border border-[#84AF25]/50'
+                      : 'hover:bg-white/80'
                   }`}
                 >
                   {/* Step Number Badge above icon */}
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-4 shadow-sm transition-all ${
                       isSelected || isPassed
-                        ? 'bg-[#80C431] text-[#001F2B]'
-                        : 'bg-slate-200 text-slate-700'
+                        ? 'bg-[#84AF25] text-[#232930]'
+                        : 'bg-[#374556]/15 text-[#374556]'
                     }`}
                   >
                     {step.stepNumber}
@@ -110,8 +113,8 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
                   <div
                     className={`w-14 h-14 rounded-full flex items-center justify-center border-2 mb-4 transition-all duration-200 ${
                       isSelected
-                        ? 'bg-[#80C431] border-[#80C431] shadow-md shadow-[#80C431]/30'
-                        : 'bg-white border-slate-200 group-hover:border-[#80C431]'
+                        ? 'bg-[#84AF25] border-[#84AF25] shadow-md shadow-[#84AF25]/30'
+                        : 'bg-white border-[#374556]/20 group-hover:border-[#84AF25]'
                     }`}
                   >
                     {getStepIcon(step.iconName, isSelected)}
@@ -120,12 +123,12 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
                   {/* Title & Short Summary */}
                   <h3
                     className={`text-lg font-bold transition-colors ${
-                      isSelected ? 'text-[#80C431]' : 'text-[#001F2B]'
+                      isSelected ? 'text-[#374556]' : 'text-[#434349]'
                     }`}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed max-w-[220px]">
+                  <p className="text-xs sm:text-sm text-[#434349]/75 mt-1.5 leading-relaxed max-w-[220px]">
                     {step.summary}
                   </p>
                 </div>
@@ -135,47 +138,44 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({
         </div>
 
         {/* Detailed Breakdown Card for Active Step */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm text-left animate-in fade-in duration-200">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#374556]/15 shadow-sm text-left animate-in fade-in duration-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#80C431]/15 text-[#001F2B] font-bold text-xs">
+                <span className="px-3 py-1 rounded-full bg-[#84AF25]/15 text-[#374556] font-bold text-xs">
                   Fase {currentStepData.stepNumber} de 4
                 </span>
-                <span className="text-xs text-slate-500 font-medium flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" />
+                <span className="text-xs text-[#434349]/70 font-medium flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5 text-[#84AF25]" />
                   {currentStepData.duration}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-bold text-[#001F2B]">
+              <h3 className="text-2xl font-bold text-[#374556]">
                 {currentStepData.title}: Enfoque Operativo y Estratégico
               </h3>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-[#434349]/80 text-sm sm:text-base leading-relaxed">
                 {currentStepData.details}
               </p>
             </div>
 
-            <div className="lg:col-span-5 bg-slate-50/80 rounded-2xl p-5 border border-slate-100 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-[#80C431]" />
+            <div className="lg:col-span-5 bg-[#374556]/[0.04] rounded-2xl p-5 border border-[#374556]/10 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#374556] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#84AF25]" />
                 Entregables concretos de esta fase:
               </span>
               <ul className="space-y-2">
                 {currentStepData.deliverables.map((d, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 text-[#80C431] shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#434349]">
+                    <CheckCircle2 className="w-4 h-4 text-[#84AF25] shrink-0 mt-0.5" />
                     <span>{d}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

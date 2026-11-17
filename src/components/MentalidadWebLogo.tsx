@@ -12,57 +12,39 @@ export const MentalidadWebLogo: React.FC<LogoProps> = ({
   showTagline = false,
 }) => {
   const isWhite = variant === 'white';
+  const primaryStroke = isWhite ? '#FFFFFF' : '#434349';
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Dynamic MW Brand Icon with #80C431 and #001F2B */}
-      <div className="relative w-9 h-9 shrink-0 flex items-center justify-center">
+    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+      {/* Geometric MW Mark matching brand identity (#434349 + #84AF25) */}
+      <div className="relative w-10 h-8 shrink-0 flex items-center justify-center">
         <svg
-          viewBox="0 0 48 40"
+          viewBox="0 0 52 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-sm"
+          className="w-full h-full"
           aria-hidden="true"
         >
-          <defs>
-            <linearGradient id="mwGrad1" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor={isWhite ? '#ffffff' : '#001F2B'} />
-              <stop offset="60%" stopColor="#39DCE5" />
-              <stop offset="100%" stopColor="#80C431" />
-            </linearGradient>
-            <linearGradient id="mwGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#80C431" />
-              <stop offset="100%" stopColor="#68A326" />
-            </linearGradient>
-          </defs>
-          {/* Stylized M/W Interlocking Ribbon */}
-          <path
-            d="M6 34 L14 10 C15 7 18 7 19 10 L25 24 L29 10 C30 7 33 7 34 10 L42 34"
-            stroke="url(#mwGrad1)"
-            strokeWidth="5.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M14 26 L20 34 C21 35.5 23 35.5 24 34 L30 26"
-            stroke="url(#mwGrad2)"
-            strokeWidth="5.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          {/* Left 4 interlocking strokes in Charcoal #434349 (or #FFFFFF on dark) */}
+          <polygon points="3,36 9.5,36 16.5,4 10,4" fill={primaryStroke} />
+          <polygon points="10,4 16.5,4 23.5,36 17,36" fill={primaryStroke} />
+          <polygon points="17,36 23.5,36 30.5,4 24,4" fill={primaryStroke} />
+          <polygon points="24,4 30.5,4 37.5,36 31,36" fill={primaryStroke} />
+          {/* Rightmost upward stroke in Brand Olive Green #84AF25 */}
+          <polygon points="31,36 37.5,36 47.5,4 41,4" fill="#84AF25" />
         </svg>
       </div>
 
-      {/* Brand Text: Mentalidad in Dark/White + Web in #80C431 */}
+      {/* Brand Wordmark: Mentalidad (#434349 / #FFFFFF) + Web (#84AF25) */}
       <div className="flex flex-col justify-center leading-none">
         <div className="flex items-baseline tracking-tight font-extrabold text-xl font-sans">
-          <span className={isWhite ? 'text-white' : 'text-[#001F2B]'}>Mentalidad</span>
-          <span className="text-[#80C431]">Web</span>
+          <span className={isWhite ? 'text-white' : 'text-[#434349]'}>Mentalidad</span>
+          <span className="text-[#84AF25]">Web</span>
         </div>
         {showTagline && (
           <span
-            className={`text-[10px] uppercase font-bold tracking-wider mt-0.5 ${
-              isWhite ? 'text-slate-300' : 'text-slate-500'
+            className={`text-[10px] uppercase font-bold tracking-wider mt-1 ${
+              isWhite ? 'text-white/70' : 'text-[#434349]/70'
             }`}
           >
             Datos que impulsan resultados
